@@ -1,18 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <script src="react.js"></script>
     <script src="react-dom.js"></script>
     <script src="babel.min.js"></script>
-  </head>
-  <body>
-    <div id="example"></div>
-    <script type="text/babel">
+</head>
+
+<body>
+    <!--<script type="text/babel">
 ReactDOM.render(
-  <span>Hello World!</span>,
+  <span>Hello Eddie!</span>,
   document.getElementById('example')
 );
     </script>
-  </body>
+  ;-->
+
+
+    <div id="example"></div>
+    <div id="test"></div>
+    <div id="actiontest"></div>
+
+    <script type="text/babel">
+var MyComponent = React.createClass({
+    render: function () {
+        return <h1>Hello world!</h1>;
+    }
+});
+ReactDOM.render(
+    <MyComponent/>, document.getElementById('example'));
+//組件內調用陣列
+var Myprops = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string.isRequired
+    },
+    render: function () {
+        return <h1>
+            {this.props.title}
+        </h1>;
+    }
+});
+var Mytitle = React.createClass({
+    render: function () {
+        let txet = [ < h1 > Hello Every One < /h1>,
+                <h2>two</h2 >, < h3 > three < /h3>]; return
+                        <div class="">{txet}</div >;
+    }
+});
+
+ReactDOM.render(
+    <Mytitle/>, document.getElementById('test'));
+//動態組件
+var MyAction = React.createClass({
+    getInitialState: function () {
+        return {clickNum: 0};
+    },
+    handleClick: function () {
+        var num = this.state.clickNum;
+        num++;
+        this.setState({clickNum: num});
+    },
+    render: function () {
+        return (
+            <div class="">
+                <h1 onClick={this.handleClick}>Click {this.props.name}:</h1>
+                <h2 style={{color: 'blue',marginTop: '30px'}}>{this.props.name}: {this.state.clickNum}</h2>
+            </div>
+        );
+    }
+});
+ReactDOM.render(
+    <div class="">
+    <MyAction name="test1"/>
+    <MyAction name="test2"/>
+    </div>, document.getElementById('actiontest'));
+
+    </script>
+
+
+
+</body>
+
 </html>

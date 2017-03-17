@@ -17,14 +17,20 @@
       };
     }
 
-    handleClick() {
+    hc() {
+      var d = new Date();
+      d.getFullYear();
+      d.getMonth();
+      d.getDate();
+      let isClicked = !this.state.isClicked;
       this.setState({
-        text: 'Clicked'
+        isClicked: isClicked,
+        text: isClicked ? d : 'World'
       });
     }
 
     render() {
-      return <h1 onClick={this.handleClick.bind(this)}>
+      return <h1 onClick={this.hc.bind(this)}>
         {'Hello ' + this.state.text}
       </h1>;
     }

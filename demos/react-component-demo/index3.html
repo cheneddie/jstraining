@@ -16,14 +16,12 @@
         name: '访问者'
       };
     }
-
     handleChange(e) {
       let name = e.target.value;
       this.setState({
         name: name
       });
     }
-
     render() {
       return <div>
         <input type="text" onChange={this.handleChange.bind(this)} />

@@ -27,6 +27,7 @@
         (value) => this.setState({
           loading: false,
           data: value
+          
         })
       ).fail(
         (jqXHR, textStatus) => this.setState({
@@ -41,12 +42,19 @@
         return <span>Loading...</span>;
       } else if (this.state.error !== null) {
         return <span>Error: {this.state.error}</span>;
+
       } else {
         /* 你的代码填入这里 */
+        var projects = this.state.data.items;
+        var results = [];
+        projects.forEach(function(p){
+          var item = <li>{p.name}</li>
+          results.push(item);
+        })
         return (
           <div>
             <p>API 数据获取成功</p>
-            <p>改写代码，将结果显示在这里</p>
+            <ol>{results}</ol>
           </div>
         );
       }

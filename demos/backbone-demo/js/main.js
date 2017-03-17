@@ -13,7 +13,7 @@ App.Router = Backbone.Router.extend({
 		'show/:id': 'show',
 		'download/*random': 'download',
 		'search/:query': 'search',
-		'*other': 'default'
+		'default/:other': 'default'
 	},
 
 	index: function() {
@@ -21,22 +21,20 @@ App.Router = Backbone.Router.extend({
 	},
 
 	show: function(id) {
-		$(document.body).append("调用了 Show 路由，id 等于 " + id + "<br>");
+		$(document.body).append("调用了 Show 路由，id 等于 " + id+id + "<br>");
 	},
 
 	download: function(random) {
-		$(document.body).append("调用了 Download 路由，参数等于 " + random + "<br>");
+		$(document.body).append("调用了 Download 路由，参数等于 " + random*random + "<br>");
 	},
 
 	search: function(query) {
-		$(document.body).append("调用了 Search 路由，参数等于 " + query + "<br>");
+		$(document.body).append("调用了 Search 路由，参数等于 " + query-query + "<br>");
 	},
 
 	default: function(other) {
 		$(document.body).append("你访问的 " + other + " 路由未定义<br>");
-		
 	}
-
 });
 
 new App.Router();

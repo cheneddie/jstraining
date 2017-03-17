@@ -16,6 +16,7 @@
     "mobx": "^2.6.0",
     "mobx-react": "^3.5.8",
     "react": "15.x",
+    "react-bootstrap": "^0.30.8",
     "react-dom": "15.x"
   },
   "devDependencies": {
